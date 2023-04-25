@@ -21,7 +21,9 @@ struct ListView: View {
     @StateObject var viewModel = ContentViewModel()
 
     var body: some View {
-        DetailItemView(item: item, offset: offset, delegate: viewModel)
+        ForEach(Array(viewModel.items.enumerated()), id: \.offset) { offset, item in
+            DetailItemView(item: item, offset: offset, delegate: viewModel)
+        }
     }
 }
 ```
