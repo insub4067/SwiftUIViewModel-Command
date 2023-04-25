@@ -11,9 +11,10 @@
 잘못 참조하는 경우 앱이 Crash 나는 등 예외 처리해줘야하는 경우의 수가 늘어나고 실수를 할수 있는 위험성이 높았습니다.  
 때문에 Protocol 로 추상화를 하여 Parent List View 의 ViewModel 을 참조하는 시도를 해보았습니다.
 
-## ✓ 화면과 예시
+## 📱 화면과 예시
 <img src="https://user-images.githubusercontent.com/85481204/234418319-6111c021-b488-4b69-8462-4e70987d020c.gif" width="250">
 
+✓ ListView
 ```
 struct ListView: View {
 
@@ -23,24 +24,9 @@ struct ListView: View {
         DetailItemView(item: item, offset: offset, delegate: viewModel)
     }
 }
-
-class ListViewModel: ObservableObject, ItemDelegate {
-    
-    @Published var items: [Item] = []
-    
-    // Delegate
-    func didTapIsLike(offset: Int) {
-        DispatchQueue.main.async { [weak self] in
-            self?.items[offset].isLiked.toggle()
-        }
-    }
-}
-
-protocol ItemDelegate: AnyObject {
-    func didTapIsLike(offset: Int)
-}
 ```
 
+✓ DetailView
 ```
 struct DetailItemView: View {
     
