@@ -1,4 +1,4 @@
-# SwiftUIViewModel-Delegate
+# SwiftUIViewModel-Command
 
 ## 🤔 해결하고자 하는 문제
 소셜 서비스 등에서 List 와 Detail 페이지를 다루는 화면에서 Detail Page 에서 변경된 내용을 List Page 에서도 동일하게 변경된 화면을 보여줘야하는 페이지들이 있습니다.  
