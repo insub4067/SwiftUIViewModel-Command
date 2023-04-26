@@ -19,7 +19,7 @@ struct ContentView: View {
                     ForEach(Array(viewModel.items.enumerated()), id: \.offset) { offset, item in
                         // MARK: - Cell
                         NavigationLink {
-                            DetailItemView(item: item, offset: offset, delegate: viewModel)
+                            DetailItemView(item: item, offset: offset, command: viewModel)
                         } label: {
                             Cell(item: item, offset: 0)
                         }
@@ -49,7 +49,7 @@ struct ContentView: View {
     }
 }
 
-class ContentViewModel: ObservableObject, ItemDelegate {
+class ContentViewModel: ObservableObject, ItemCommand {
     
     @Published var items: [Item] = []
     

@@ -12,12 +12,12 @@ struct DetailItemView: View {
     @State var item: Item
     let offset: Int
     
-    weak var delegate: ItemDelegate?
+    weak var command: ItemCommand?
     
-    init(item: Item, offset: Int, delegate: ItemDelegate? = nil) {
+    init(item: Item, offset: Int, command: ItemCommand? = nil) {
         self._item = State(wrappedValue: item)
         self.offset = offset
-        self.delegate = delegate
+        self.command = command
     }
     
     var body: some View {
@@ -34,6 +34,6 @@ struct DetailItemView: View {
     
     func didTapItem() {
         item.isLiked.toggle()
-        delegate?.didTapIsLike(offset: offset)
+        command?.didTapIsLike(offset: offset)
     }
 }

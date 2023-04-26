@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol ItemDelegate: AnyObject {
+protocol ItemCommand: AnyObject {
     func didTapIsLike(offset: Int)
 }
 
