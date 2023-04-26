@@ -35,7 +35,7 @@ struct DetailItemView: View {
     @State var item: Item
     let offset: Int
     
-    weak var delegate: ItemDelegate?
+    weak var command: ItemCommand?
 
     var body: some View {
             // 좋아요 
@@ -45,7 +45,7 @@ struct DetailItemView: View {
     
     func didTapItem() {
         item.isLiked.toggle()
-        delegate?.didTapIsLike(offset: offset)
+        command?.didTapIsLike(offset: offset)
     }
 }
 ```
